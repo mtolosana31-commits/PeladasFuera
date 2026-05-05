@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect width="40" height="40" fill="transparent"/>
+  <!-- Base shape -->
+  <polygon points="0,40 20,5 40,40" fill="#ffa801"/>
+  <!-- Inner detail -->
+  <polygon points="10,40 20,20 30,40" fill="#ffc048"/>
+  <!-- Warning icon circle -->
+  <circle cx="20" cy="30" r="3" fill="#1e272e"/>
+</svg>
