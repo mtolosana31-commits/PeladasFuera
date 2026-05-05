@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>fuckPeladas</title>
+    <meta name="description" content="fuckPeladas — Esquiva las peladas o muere en el intento.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fondo animado con estrellas y nebulosas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="game-wrapper">
+        <!-- HUD Superior -->
+        <div id="hud">
+            <div id="hud-left">
+                <div class="hud-label">PUNTOS</div>
+                <div id="score-value">0</div>
+            </div>
+            <div id="hud-center">
+                <div class="hud-label">VELOCIDAD</div>
+                <div id="speed-value">1.0x</div>
+            </div>
+            <div id="hud-right">
+                <div class="hud-label">RÉCORD</div>
+                <div id="highscore-value">0</div>
+            </div>
+        </div>
+
+        <!-- Contenedor del juego -->
+        <div id="game-container">
+            <!-- Flash de colisión -->
+            <div id="collision-flash"></div>
+            <!-- Viñeta de bordes -->
+            <div id="vignette"></div>
+
+            <!-- Cielo y efectos de fondo (FUERA del mundo 3D para no tapar obstáculos) -->
+            <div id="sky-gradient"></div>
+            <div id="ground-glow"></div>
+
+            <!-- El mundo 3D -->
+            <div id="world">
+                <div id="ground"></div>
+                <!-- Líneas de carril -->
+                <div class="lane-line lane-left"></div>
+                <div class="lane-line lane-right"></div>
+                <!-- Bordes laterales de la pista -->
+                <div class="track-edge edge-left"></div>
+                <div class="track-edge edge-right"></div>
+            </div>
+            
+            <!-- UI Superpuesta -->
+            <div id="ui-layer">
+                <!-- Jugador -->
+                <div id="player">
+                    <div id="player-glow"></div>
+                    <div id="player-shadow"></div>
+                </div>
+
+                <!-- Pantalla de Inicio -->
+                <div id="start-screen">
+                    <div class="start-content">
+                        <h1>fuckPeladas</h1>
+                        <p class="tagline">💀 Esquiva las peladas o muere 💀</p>
+                        <button id="start-button">▶ JUGAR</button>
+                        <div class="controls-info">
+                            <span>⌨️ ESPACIO = Saltar</span>
+                            <span>← → = Moverte</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pantalla de Game Over -->
+                <div id="game-over" class="hidden">
+                    <div class="game-over-content">
+                        <h2>💀 TE PELÓ</h2>
+                        <div class="crashed-face" id="crashed-face"></div>
+                        <div class="final-stats">
+                            <div class="stat">
+                                <span class="stat-label">Puntuación</span>
+                                <span id="final-score" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Récord</span>
+                                <span id="final-highscore" class="stat-value">0</span>
+                            </div>
+                        </div>
+                        <div id="new-record" class="hidden">🏆 ¡NUEVO RÉCORD!</div>
+                        <button id="restart-button">🔄 OTRA VEZ</button>
+                    </div>
+                </div>
+                
+                <!-- Controles táctiles -->
+                <div id="touch-controls" class="hidden">
+                    <button id="btn-left" aria-label="Mover izquierda">◀</button>
+                    <button id="btn-jump" aria-label="Saltar">⬆ SALTO</button>
+                    <button id="btn-right" aria-label="Mover derecha">▶</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
